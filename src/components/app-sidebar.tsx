@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { LogoIcon } from "@/components/logo";
 import {
 	Sidebar,
 	SidebarContent,
@@ -12,8 +11,8 @@ import {
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { footerNavLinks, navGroups } from "@/components/app-shared";
-import { LatestChange } from "@/components/latest-change";
 import { NavGroup } from "@/components/nav-group";
+import { Pizza } from 'lucide-react'
 
 export function AppSidebar() {
 	return (
@@ -29,8 +28,8 @@ export function AppSidebar() {
 			<SidebarHeader className="h-14 justify-center border-b px-2">
 				<SidebarMenuButton asChild>
 					<a href="#link">
-						<LogoIcon />
-						<span className="font-medium text-foreground!">Efferd</span>
+						<Pizza />
+						<span className="font-medium text-foreground!">R.st</span>
 					</a>
 				</SidebarMenuButton>
 			</SidebarHeader>
@@ -40,7 +39,6 @@ export function AppSidebar() {
 				))}
 			</SidebarContent>
 			<SidebarFooter className="gap-0 p-0">
-				<LatestChange />
 				<SidebarMenu className="border-t p-2">
 					{footerNavLinks.map((item) => (
 						<SidebarMenuItem key={item.title}>
@@ -60,7 +58,7 @@ export function AppSidebar() {
 				</SidebarMenu>
 				<div className="px-4 pt-4 pb-2 transition-opacity group-data-[collapsible=icon]:pointer-events-none group-data-[collapsible=icon]:opacity-0">
 					<p className="text-nowrap text-[9px] text-muted-foreground">
-						© {new Date().getFullYear()} Efferd LLC
+						© {new Date().getFullYear()} R.st
 					</p>
 				</div>
 			</SidebarFooter>

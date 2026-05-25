@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { DecorIcon } from "@/components/ui/decor-icon";
 import { Button } from "@/components/ui/button";
@@ -7,10 +9,19 @@ import { navLinks } from "@/components/app-shared";
 import { CustomSidebarTrigger } from "@/components/custom-sidebar-trigger";
 import { SendIcon, BellIcon } from "lucide-react";
 import { ModeToggle } from "./theme-toggle";
-
-const activeItem = navLinks.find((item) => item.isActive);
+import { usePathname } from "next/navigation";
 
 export function AppHeader() {
+  const pathname = usePathname();
+
+  const activeItem = navLinks.find((item) => {
+    if (!item.path || !pathname) return false;
+    if (item.path === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(item.path);
+  });
+
   return (
     <header
       className={cn(
@@ -29,12 +40,6 @@ export function AppHeader() {
       </div>
       <div className="flex items-center gap-3">
         <ModeToggle />
-        <Button size="icon-sm" variant="outline">
-          <SendIcon />
-        </Button>
-        <Button aria-label="Notifications" size="icon-sm" variant="outline">
-          <BellIcon />
-        </Button>
       </div>
     </header>
   );

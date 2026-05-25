@@ -1,16 +1,16 @@
 import type { ReactNode } from "react";
 import {
   LayoutGridIcon,
-  BarChart3Icon,
-  BriefcaseIcon,
+  ReceiptIcon,
+  UtensilsIcon,
+  TableIcon,
   UsersIcon,
-  PlugIcon,
-  KeyRoundIcon,
-  SettingsIcon,
-  CreditCardIcon,
+  UserSquareIcon,
   HelpCircleIcon,
   BookOpenIcon,
+  ClipboardListIcon,
 } from "lucide-react";
+import { usePathnameActive } from "@/hooks/use-pathname-active";
 
 export type SidebarNavItem = {
   title: string;
@@ -27,7 +27,7 @@ export type SidebarNavGroup = {
 
 export const navGroups: SidebarNavGroup[] = [
   {
-    label: "Product",
+    label: "Main",
     items: [
       {
         title: "Dashboard",
@@ -35,66 +35,40 @@ export const navGroups: SidebarNavGroup[] = [
         icon: <LayoutGridIcon />,
       },
       {
-        title: "Analytics",
-        path: "/analytics",
-        icon: <BarChart3Icon />,
-      },
-      {
-        title: "Projects",
-        path: "#/projects",
-        icon: <BriefcaseIcon />,
+        title: "Transaksi",
+        path: "/transaksi",
+        icon: <ReceiptIcon />,
       },
     ],
   },
   {
-    label: "Workspace",
+    label: "Master Data",
     items: [
       {
-        title: "Team",
-        path: "#/team",
+        title: "Menu",
+        path: "/menu",
+        icon: <UtensilsIcon />,
+      },
+      {
+        title: "Meja",
+        path: "/meja",
+        icon: <TableIcon />,
+      },
+      {
+        title: "Pelanggan",
+        path: "/pelanggan",
         icon: <UsersIcon />,
       },
       {
-        title: "Integrations",
-        path: "#/integrations",
-        icon: <PlugIcon />,
-      },
-      {
-        title: "API Keys",
-        path: "#/api-keys",
-        icon: <KeyRoundIcon />,
-      },
-    ],
-  },
-  {
-    label: "Administration",
-    items: [
-      {
-        title: "Settings",
-        path: "#/settings",
-        icon: <SettingsIcon />,
-      },
-      {
-        title: "Billing",
-        path: "#/billing",
-        icon: <CreditCardIcon />,
+        title: "Kasir",
+        path: "/kasir",
+        icon: <UserSquareIcon />,
       },
     ],
   },
 ];
 
-export const footerNavLinks: SidebarNavItem[] = [
-  {
-    title: "Help Center",
-    path: "#/help",
-    icon: <HelpCircleIcon />,
-  },
-  {
-    title: "Documentation",
-    path: "#/documentation",
-    icon: <BookOpenIcon />,
-  },
-];
+export const footerNavLinks: SidebarNavItem[] = [];
 
 export const navLinks: SidebarNavItem[] = [
   ...navGroups.flatMap((group) =>

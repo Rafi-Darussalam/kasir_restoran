@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Collapsible,
   CollapsibleContent,
@@ -62,7 +62,10 @@ export function NavGroup({ label, items }: SidebarNavGroup) {
                   </CollapsibleContent>
                 </>
               ) : (
-                <SidebarMenuButton asChild isActive={usePathnameActive(`${item.path}`)}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={usePathnameActive(`${item.path}`)}
+                >
                   <Link href={`${item.path}`}>
                     {item.icon}
                     <span>{item.title}</span>
